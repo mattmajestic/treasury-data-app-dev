@@ -34,8 +34,8 @@ with col2:
 
 with col3:
     st.button("Consulting ☎️")
-    st.write("We provide developer & SME services to help connect you to insights")
-    st.write("Consulting based AI using LLM for custom GPT format of Treasury your treasury questions")
+    st.write("We provide developer & SME services to help connect you to richer insights")
+    st.write("Consulting based AI using LLM for custom GPT format for your treasury questions")
 
 # Add footer
 st.markdown(
