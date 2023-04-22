@@ -9,6 +9,10 @@ Api + App for Supplemental Treasury Insights
 Custom Alchemy of Machine Learning Models to create thoughtful `insights` & `predictions`
 - `h20.ai`: Based ML known for speed on JVMs
 - `Hugging Face`: Largest provider of `Transformers` for specific modeling techniques
+Cloud Providers: We toggle between major cloud providers via `Terraform` for effciency
+- Google Cloud Platform
+- AWS
+- Azure
 
 ## Tech Stack
 
