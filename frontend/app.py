@@ -10,14 +10,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     )
 
-
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-        
-#  To get rid of the Streamlit branding stuff
-local_css("css/styles.css")
-
 st.write(
     """
     <div style='background-color: white; padding: 25px 25px 25px 25px; border-radius: 5px;'>
@@ -68,7 +60,6 @@ with col3:
 
 # Add footer
 st.markdown(
-    f'<p style="text-align:center;color:{secondary_color};padding-top:50px;">'
-    'Made by Treasury Data App Inc.</p>',
+    'Made by Treasury Data App Inc Run on Google Cloud</p>',
     unsafe_allow_html=True
 )
