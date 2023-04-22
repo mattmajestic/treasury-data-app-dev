@@ -9,9 +9,9 @@ st.set_page_config(
 )
 
 # Define colors
-primary_color = "#0072C6" # blue
-secondary_color = "#FFFFFF" # white
-accent_color = "#00A650" # green
+PRIMARY_COLOR = "#0072C6"  # blue
+SECONDARY_COLOR = "#FFFFFF"  # white
+ACCENT_COLOR = "#00A650"  # green
 
 # Define page content
 st.title("Supplemental Treasury Insights")
@@ -25,23 +25,22 @@ st.write(
     """
 )
 
-# Show app icon
-st.image("app_icon.png")
-
 # Add some call-to-action buttons
 st.markdown("---")
-st.write("Ready to get started?")
 col1, col2, col3 = st.columns(3)
 
+with col1:
+    st.write("")
 with col2:
-    st.button("Sign Up")
-
+    if st.button("Sign Up"):
+        st.write("You clicked the 'Sign Up' button!")
 with col3:
-    st.button("Learn More")
+    if st.button("Learn More"):
+        st.write("You clicked the 'Learn More' button!")
 
 # Add footer
 st.markdown(
-    f'<p style="text-align:center;color:{secondary_color};padding-top:50px;">'
+    f'<p style="text-align:center;color:{SECONDARY_COLOR};padding-top:50px;">'
     'Made with ❤️ by Matt & Issac</p>',
     unsafe_allow_html=True
 )
