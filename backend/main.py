@@ -48,34 +48,18 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/quantum_ai")
-async def quantum_ai():
-    # Pick a qubit.
+@app.get("/quantum_ai_simulation")
+async def quantum_ai_simulation():
     qubit = cirq.GridQubit(0, 0)
-    # Create a circuit
     circuit = cirq.Circuit(cirq.X(qubit)**0.5,  cirq.measure(qubit, key='m') )
+    simulator = cirq.Simulator()
+    result = simulator.run(circuit, repetitions=20)
+    print(result)
     return "If you see this Quantum AI is working"
 
-# Simulate the circuit several times.
-simulator = cirq.Simulator()
-result = simulator.run(circuit, repetitions=20)
-print("Results:")
-print(result)
-    return response.json()
-
-@app.get("/h20_ai")
-async def h20_ai():
+@app.get("/h20_ai_llm")
+async def h20_ai_llm():
     response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
-    return response.json()
-
-@app.get("/api_call_2")
-async def api_call_2():
-    response = requests.get("https://jsonplaceholder.typicode.com/posts/1")
-    return response.json()
-
-@app.get("/api_call_3")
-async def api_call_3():
-    response = requests.get("https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_APP_ID")
     return response.json()
 
 def custom_openapi():
