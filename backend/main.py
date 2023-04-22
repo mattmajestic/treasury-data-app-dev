@@ -3,16 +3,44 @@ from fastapi.openapi.utils import get_openapi
 from fastapi.responses import JSONResponse
 import requests
 import boto3
+from azure.storage.blob import BlockBlobService
+from google.cloud import storage
 import torch
 from transformers import pipeline
+import cirq
 
 # AWS S3 configuration
-s3 = boto3.client(
-    's3',
-    aws_access_key_id='<your_access_key_id>',
-    aws_secret_access_key='<your_secret_access_key>'
-)
-bucket_name = '<your_bucket_name>'
+#s3 = boto3.client(
+    #'s3',
+    #aws_access_key_id='<your_access_key_id>',
+    #aws_secret_access_key='<your_secret_access_key>'
+#)
+#bucket_name = '<your_bucket_name>'
+
+# Azure Setup
+#account_name = '<your_storage_account_name>'
+#account_key = '<your_storage_account_key>'
+#block_blob_service = BlockBlobService(account_name=account_name, account_key=account_key)
+#container_name = '<your_container_name>'
+#blob_name = '<your_blob_name>'
+#file_path = '<path_to_your_local_file>'
+# block_blob_service.create_blob_from_path(container_name, blob_name, file_path)
+
+# GCP Setup
+# Set up a client to interact with Google Cloud Storage
+#client = storage.Client()
+
+# Reference your bucket by name
+#bucket_name = 'my-bucket-name'
+# bucket = client.bucket(bucket_name)
+
+# # Upload a file to the bucket
+# blob = bucket.blob('example.txt')
+# blob.upload_from_filename('/path/to/local/file.txt')
+
+# # Download a file from the bucket
+# blob = bucket.blob('example.txt')
+# blob.download_to_filename('/path/to/local/destination.txt')
 
 app = FastAPI()
 
