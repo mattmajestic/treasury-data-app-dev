@@ -11,3 +11,4 @@ loguru
 bcrypt
 accelerate
 transformers
+boto3
