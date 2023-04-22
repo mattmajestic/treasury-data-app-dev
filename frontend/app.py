@@ -11,6 +11,10 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     )
 
+st.markdown("""
+    <script src="https://js.stripe.com/v3/"></script>
+    """, unsafe_allow_html=True)
+
 #  Anchor
 st.title("#")  # This anchor is needed for the page to start at the top when it is called.
 st.header("Treasury Data App 💸")
