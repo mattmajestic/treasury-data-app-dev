@@ -18,8 +18,7 @@ st.write("Welcome to our app! Our mission is to provide supplemental insights fo
 
 # Add some call-to-action buttons
 st.markdown("---")
-st.write("Our Products")
-st.markdown("---")
+st.header("Our Products")
 col1, col2, col3 = st.columns(3)
 
 with col1:
