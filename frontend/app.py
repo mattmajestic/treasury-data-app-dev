@@ -5,7 +5,7 @@ import numpy as np
 
 # Set page configuration
 st.set_page_config(
-    page_title=" Treasury Data App 📊 ",
+    page_title=" Treasury Data App ",
     page_icon=":money_with_wings:",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -13,7 +13,7 @@ st.set_page_config(
 
 #  Anchor
 st.title("#")  # This anchor is needed for the page to start at the top when it is called.
-st.header("Treasury Data App")
+st.header("Treasury Data App 💸")
 st.write("Welcome to our app! Our mission is to provide supplemental insights for treasury management. This app is powered by an API that pulls data from a variety of sources, and provides you with powerful tools to visualize and analyze that data.")
 
 # Add some call-to-action buttons
