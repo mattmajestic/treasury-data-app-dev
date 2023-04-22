@@ -38,6 +38,6 @@ with col3:
 
 # Add footer
 st.markdown(
-    'Made by Treasury Data App Inc Run on Google Cloud</p>',
+    'Run on Google Cloud</p>',
     unsafe_allow_html=True
 )
