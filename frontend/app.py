@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import altair as alt
 
 # Set page configuration
 st.set_page_config(
@@ -8,23 +10,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     )
 
-# Define colors
-primary_color = "#0072C6" # blue
-secondary_color = "#FFFFFF" # white
-accent_color = "#00A650" # green
 
-# Define page content
-st.markdown(
-    f"""
-    <style>
-    .reportview-container {{
-        background-color: {primary_color};
-        color: {secondary_color};
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        
+#  To get rid of the Streamlit branding stuff
+local_css("css/styles.css")
 
 st.write(
     """
@@ -42,6 +34,30 @@ st.markdown("---")
 st.write("Ready to get started?")
 col1, col2, col3 = st.columns(3)
 
+with col1:
+    st.button("App Insights")
+    # Create some sample data
+    data = {
+        "year": [2010, 2011, 2012, 2013, 2014, 2015],
+        "country": ["USA", "USA", "Canada", "Canada", "Mexico", "Mexico"],
+        "volume": [100, 120, 90, 110, 80, 100]
+    }
+    df = pd.DataFrame(data)
+
+    # Create the chart
+    chart = alt.Chart(df).mark_line().encode(
+        x=alt.X('year', type='nominal'),
+        y=alt.Y('volume', type='quantitative'),
+        color=alt.Color('country', type='nominal', scale=alt.Scale(scheme='category20')),
+        tooltip=['year', 'country', 'volume']
+    ).properties(
+        width=600,
+        height=400
+    )
+
+    # Display the chart using Streamlit
+    st.altair_chart(chart, use_container_width=True)
+
 with col2:
     st.button("API")
     st.markdown("[Treasury Data API](https://treasury-data-app-dev-backend-ypo22oeifq-uc.a.run.app/docs) to visit our API")
@@ -53,6 +69,6 @@ with col3:
 # Add footer
 st.markdown(
     f'<p style="text-align:center;color:{secondary_color};padding-top:50px;">'
-    'Made with ❤️ by Matt & Issac</p>',
+    'Made by Treasury Data App Inc.</p>',
     unsafe_allow_html=True
 )
