@@ -1,5 +1,9 @@
-# treasury-data-app-dev
-Api + App for Supplemental Treasury Insights
+# Treasury Data App Dev
+`App` + Api for Supplemental Treasury Insights with enterprise cloud integrations capabilties.
+
+Deployments on `Google Cloud Run`
+- `App`: https://treasury-data.app/
+- `API`: https://treasury-data-app-dev-backend-ypo22oeifq-uc.a.run.app/docs
 
 ## Features
 - `App`: Data Visualizations + Analysis of Supplemental Treasury Specific Insights
