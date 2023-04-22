@@ -10,16 +10,9 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     )
 
-st.write(
-    """
-    <div style='background-color: white; padding: 25px 25px 25px 25px; border-radius: 5px;'>
-    <h1 style='text-align: center; color: {primary_color};'>Supplemental Treasury Insights</h1>
-    <h3 style='text-align: center; color: {accent_color};'>API + App for Supplemental Treasury Insights</h3>
-    <p>Welcome to our app! Our mission is to provide supplemental insights for treasury management. This app is powered by an API that pulls data from a variety of sources, and provides you with powerful tools to visualize and analyze that data.</p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.write("Supplemental Treasury Insights")
+st.write("API + App for Supplemental Treasury Insights")
+st.write("Welcome to our app! Our mission is to provide supplemental insights for treasury management. This app is powered by an API that pulls data from a variety of sources, and provides you with powerful tools to visualize and analyze that data.")
 
 # Add some call-to-action buttons
 st.markdown("---")
@@ -29,25 +22,8 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.button("Insights")
-    # Sample data
-    data = pd.DataFrame({
-        'year': [2018, 2018, 2019, 2019, 2020, 2020],
-        'country': ['USA', 'Canada', 'USA', 'Canada', 'USA', 'Canada'],
-        'volume': [100, 200, 150, 250, 175, 225]
-    })
-
-    # Create grouped bar chart with Altair
-    chart = alt.Chart(data).mark_bar().encode(
-        x='year',
-        y='volume',
-        color='country'
-    ).properties(
-        width=600,
-        height=400
-    )
-
-    # Display chart in Streamlit
-    st.altair_chart(chart, use_container_width=True)
+    chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['US', 'Canada', 'Mexico'])
+    st.line_chart(chart_data)
 
 with col2:
     st.button("API")
