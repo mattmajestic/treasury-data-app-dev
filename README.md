@@ -1,6 +1,11 @@
 # Treasury Data App Dev
 `App` + Api for Supplemental Treasury Insights with enterprise cloud integrations capabilties. We also provide consulting services to further enhance your insights both development and rich SME treasury knowledge
 
+## Services Offered
+- Web App for Users
+- API for Developers
+- Consulting services for development & years of Treasury SME resources
+
 Deployments on `Google Cloud Run`
 - `App`: https://treasury-data.app/
 - `API`: https://treasury-data-app-dev-backend-ypo22oeifq-uc.a.run.app/docs
