@@ -31,8 +31,11 @@ Pure Python baby! For nimble development, keeping the frontend and backend in on
 
 ```mermaid
 graph LR
-    A[Streamlit App] -->|HTTP Request| B(FastAPI Backend)
-    B -->|AWS Storage| C[Amazon S3 Bucket]
+    A[Terraform] -->|Provision Cloud| B(Streamlit App)
+    B -->|API Request| C(FastAPI Backend)
+    C -->|AWS Storage| D[Amazon S3 Bucket]
+    C -->|Azure Storage| E[Azure Blob]
+    C -->|GCP| F[Google Cloud Bucket]
 ```
 
 `Note`: The Streamlit app can handle the POC + MVP stage but once 100 users is hit that will need to be rewritten to Javascript (React, Vue, Svelte). I would offshore this then chatGPT to replace the frontend. 
