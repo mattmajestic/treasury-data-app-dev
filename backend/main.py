@@ -1,0 +1,45 @@
+from fastapi import FastAPI
+from fastapi.openapi.utils import get_openapi
+from fastapi.responses import JSONResponse
+import requests
+
+import torch
+from transformers import pipeline
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+@app.get("/api_call_1")
+async def api_call_1():
+    response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
+    return response.json()
+
+@app.get("/h20_ai")
+async def h20_ai():
+    response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
+    return response.json()
+
+@app.get("/api_call_2")
+async def api_call_2():
+    response = requests.get("https://jsonplaceholder.typicode.com/posts/1")
+    return response.json()
+
+@app.get("/api_call_3")
+async def api_call_3():
+    response = requests.get("https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_APP_ID")
+    return response.json()
+
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title="My API",
+        version="0.1.0",
+        description="This is a very nice API",
+        routes=app.routes,
+    )
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
