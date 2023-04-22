@@ -3,8 +3,8 @@ from fastapi.openapi.utils import get_openapi
 from fastapi.responses import JSONResponse
 import requests
 import boto3
-from azure.storage.blob import BlockBlobService
-from google.cloud import storage
+import azure.storage.blob
+import google.cloud
 import torch
 from transformers import pipeline
 import cirq
