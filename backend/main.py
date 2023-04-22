@@ -2,9 +2,17 @@ from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import JSONResponse
 import requests
-
+import boto3
 import torch
 from transformers import pipeline
+
+# AWS S3 configuration
+s3 = boto3.client(
+    's3',
+    aws_access_key_id='<your_access_key_id>',
+    aws_secret_access_key='<your_secret_access_key>'
+)
+bucket_name = '<your_bucket_name>'
 
 app = FastAPI()
 
@@ -36,9 +44,9 @@ def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
     openapi_schema = get_openapi(
-        title="My API",
+        title="Treasury Insights API",
         version="0.1.0",
-        description="This is a very nice API",
+        description="Supplemental Treasury Insights Developer API",
         routes=app.routes,
     )
     app.openapi_schema = openapi_schema
