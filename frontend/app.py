@@ -23,31 +23,30 @@ st.write(
 
 # Add some call-to-action buttons
 st.markdown("---")
-st.write("Ready to get started?")
+st.write("Our Products")
+st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.button("App Insights")
-    # Create some sample data
-    data = {
-        "year": [2010, 2011, 2012, 2013, 2014, 2015],
-        "country": ["USA", "USA", "Canada", "Canada", "Mexico", "Mexico"],
-        "volume": [100, 120, 90, 110, 80, 100]
-    }
-    df = pd.DataFrame(data)
+    st.button("Insights")
+    # Sample data
+    data = pd.DataFrame({
+        'year': [2018, 2018, 2019, 2019, 2020, 2020],
+        'country': ['USA', 'Canada', 'USA', 'Canada', 'USA', 'Canada'],
+        'volume': [100, 200, 150, 250, 175, 225]
+    })
 
-    # Create the chart
-    chart = alt.Chart(df).mark_line().encode(
-        x=alt.X('year', type='nominal'),
-        y=alt.Y('volume', type='quantitative'),
-        color=alt.Color('country', type='nominal', scale=alt.Scale(scheme='category20')),
-        tooltip=['year', 'country', 'volume']
+    # Create grouped bar chart with Altair
+    chart = alt.Chart(data).mark_bar().encode(
+        x='year',
+        y='volume',
+        color='country'
     ).properties(
         width=600,
         height=400
     )
 
-    # Display the chart using Streamlit
+    # Display chart in Streamlit
     st.altair_chart(chart, use_container_width=True)
 
 with col2:
@@ -56,7 +55,8 @@ with col2:
     st.markdown("[Treasury Data API Documentation](https://treasury-data-app-dev-backend-ypo22oeifq-uc.a.run.app/docs) to visit our API Documentation")
 
 with col3:
-    st.button("Learn More")
+    st.button("Consulting")
+    st.write("We provide developer & SME services to help connect you to insights")
 
 # Add footer
 st.markdown(
