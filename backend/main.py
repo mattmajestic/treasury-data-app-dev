@@ -3,7 +3,10 @@ from fastapi.openapi.utils import get_openapi
 from fastapi.responses import JSONResponse
 import requests
 import boto3
-import azure.storage.blob
+import os
+import uuid
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 import google.cloud
 import torch
 from transformers import pipeline
