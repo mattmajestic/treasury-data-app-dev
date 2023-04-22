@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
+import numpy as np
 
 # Set page configuration
 st.set_page_config(
@@ -33,6 +34,7 @@ with col2:
 with col3:
     st.button("Consulting")
     st.write("We provide developer & SME services to help connect you to insights")
+    st.write("Consulting based AI using LLM for custom GPT format of Treasury your treasury questions")
 
 # Add footer
 st.markdown(

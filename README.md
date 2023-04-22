@@ -5,6 +5,7 @@
 - Web App for Users
 - API for Developers
 - Consulting services for development & years of Treasury SME resources
+    - GPT style Treasury AI (Development Phase) for AI Consulting
 
 Deployments on `Google Cloud Run`
 - `App`: https://treasury-data.app/
