@@ -12,3 +12,4 @@ bcrypt
 accelerate
 transformers
 boto3
+cirq
