@@ -50,16 +50,11 @@ async def root():
 
 @app.get("/quantum_ai")
 async def quantum_ai():
-
     # Pick a qubit.
     qubit = cirq.GridQubit(0, 0)
-
     # Create a circuit
-    circuit = cirq.Circuit(
-        cirq.X(qubit)**0.5,  # Square root of NOT.
-        cirq.measure(qubit, key='m')  # Measurement.
-    )
-    return circuit
+    circuit = cirq.Circuit(cirq.X(qubit)**0.5,  cirq.measure(qubit, key='m') )
+    return "If you see this Quantum AI is working"
 
 # Simulate the circuit several times.
 simulator = cirq.Simulator()
